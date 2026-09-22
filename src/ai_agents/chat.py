@@ -1,6 +1,7 @@
 import os
 
 from langchain_ollama import ChatOllama
+from dotenv import load_dotenv
 
 DEFAULT_MODEL = "qwen2.5-coder:3b"
 DEFAULT_BASE_URL = "http://localhost:11434"
@@ -11,6 +12,7 @@ def create_chat_model(
     base_url: str | None = None,
 ) -> ChatOllama:
     """Create the local Ollama chat model used by the agent."""
+    load_dotenv(dotenv_path=".env")
     return ChatOllama(
         model=model_name or os.getenv("OLLAMA_MODEL", DEFAULT_MODEL),
         base_url=base_url or os.getenv("OLLAMA_BASE_URL", DEFAULT_BASE_URL),

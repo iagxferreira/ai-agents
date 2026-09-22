@@ -26,7 +26,18 @@ uv sync
 ```
 
 The default model is `qwen2.5-coder:3b`. Override it, or the Ollama endpoint,
-with environment variables:
+with a `.env` file or environment variables. Start from `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
+The supported variables are:
+
+- `OLLAMA_MODEL`
+- `OLLAMA_BASE_URL`
+
+You can also override them directly in the shell:
 
 ```bash
 OLLAMA_MODEL=qwen3:8b uv run ai-agents
