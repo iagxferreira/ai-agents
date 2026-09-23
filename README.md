@@ -50,6 +50,13 @@ Start the interactive chat:
 uv run ai-agents
 ```
 
+The agent can calculate using `add`, `multiply`, `divide`, `subtract`, and
+`calculate`. Use `calculate` for compound expressions so standard operator
+precedence is preserved. When the model requests one of these tools, the chat loop prints
+the tool call, executes it, prints the result, and sends that result back to
+the model. It supports both native LangChain tool calls and JSON tool calls
+from models that do not emit native tool-call metadata.
+
 Run tests:
 
 ```bash
